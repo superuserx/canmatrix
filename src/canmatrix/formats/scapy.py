@@ -83,7 +83,7 @@ def dump(db, f, **options):  # type: (canmatrix.CanMatrix, typing.IO, **typing.A
     for frame in db.frames:
         if frame.arbitration_id.extended:
             scapy_decoder += "bind_layers(SignalHeader, " + frame.name + ", identifier  = " + hex(
-                frame.arbitration_id.id) + ", flags = \"extended\")\n"
+                frame.arbitration_id.id) + ", flags = 4)\n"
         else:
             scapy_decoder += "bind_layers(SignalHeader, " + frame.name + ", identifier  = " + hex(
                 frame.arbitration_id.id) + ")\n"
